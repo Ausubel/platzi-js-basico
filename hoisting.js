@@ -1,6 +1,7 @@
 /**
  * HOISTING: Es cuando las variables y funciones se procesan antes de que se ejecute cualquier trazo de código
  */
+// https://medium.com/@anamartinezaguilar/qu%C3%A9-es-el-hoisting-327870f67b36
  /*
   - JS declara primero las funciones antes que las variables
   - La declaración de las variables se mueven arriba del scope, pero no la asignación. Antes de usar una variable, habrá que crearla y asignarla
