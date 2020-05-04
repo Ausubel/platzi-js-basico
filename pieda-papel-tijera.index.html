@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio practico: JS Básico, Piedra papel o tinera</title>
+</head>
+<body>
+  <script>
+    const options = ['piedra', 'papel', 'tijera'];
+
+    function play(userOption) {
+      return turn(userOption, selectRandomOption());
+    }
+
+    function turn(userOption, pcOption) {
+      userOption = userOption.toLowerCase();
+      pcOption = pcOption.toLowerCase();
+
+      let winners = ['User', 'Computer'];
+      let winnerIs = '';
+      let winnerMessage = 'The game is tied, play again! 🎲';
+      let tutorialMessage = 'Do you neet a tutorial? Chheck that https://youtu.be/P65yE_EXLd8';
+
+      console.info(`${winners[0]} option is ${userOption}`);
+      console.info(`${winners[1]} option is ${pcOption}`);
+
+      if (userOption === pcOption) {
+        return winnerMessage;
+      } else if (userOption === 'piedra') {
+        if (pcOption === 'tijera') {
+          winnerIs = winners[0];
+        } else if (pcOption === 'papel') {
+          winnerIs = winners[1];
+        }
+      } else if (userOption === 'papel') {
+        if (pcOption === 'piedra') {
+          winnerIs = winners[0];
+        } else if (pcOption === 'tijera') {
+          winnerIs = winners[1];
+        }
+      } else if (userOption === 'tijera') {
+        if (pcOption === 'papel') {
+          winnerIs = winners[0];
+        } else if (pcOption === 'piedra') {
+          winnerIs = winners[1];
+        }
+      } else if (userOption != options[0] || userOption != options[1] || userOption != options[2]) {
+        return tutorialMessage;
+      }
+
+
+      console.log(`Winner is the ${winnerIs}, congrats!, play again!`);
+      return winnerIs;
+    }
+    function selectRandomOption() {
+      let min = 0, max = 2;
+      let optionSelected = Math.floor(Math.random() * (max - min + 1) + min);
+      return options[optionSelected];
+    }
+
+
+    // Piedra > Tijera
+    // Piedra < Papel
+
+    // Papel > Piedra
+    // Papel < Tijera
+
+    // Tijera > Papel
+    // Tijera < Piedra
+
+    // Test cases
+    play('piedra');
+
+  </script>
+</body>
+</html>
